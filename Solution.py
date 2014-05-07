@@ -14,12 +14,15 @@ with open('C:\\Users\\278967\\Desktop\\test3.csv') as r_file:
     for Company in Company_Names:
         Ordr_Dict[Company] = out_tuple(0, 'Year', 'Month')
     # Read the csv row by row
-    for row in reader:
-        year, month = row[:2]
+    try:
+        for row in reader:
+            year, month = row[:2]
         for Company, price in zip(Company_Names, map(int, row[2:])):
             #Check if the price in the ordered dictionay is higher
             if Ordr_Dict[Company].Highest_Price < price:
                 Ordr_Dict[Company] = out_tuple(price, year, month)
+    except csv.Error as e:
+        sys.exit('file {}, line {}: {}'.format(filename, reader.line_num, e))
 
 # Iterate over ordered dictionary to get fancier output
 for items in Ordr_Dict.iteritems():
