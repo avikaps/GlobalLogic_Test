@@ -2,6 +2,7 @@ import csv
 from collections import OrderedDict, namedtuple
 
 def process_csv(filename):
+    check_filename(filename)
     # Open a file as a read_file
     with open(filename) as r_file:
         reader = csv.reader(r_file)
@@ -27,3 +28,9 @@ def display_output(Ordr_Dict):
     # Iterate over ordered dictionary to get fancier output
     for items in Ordr_Dict.iteritems():
         print items
+
+def check_filename(filename):
+    if filename.endswith('.csv'):
+        print "\n Test case passed -- file has a correct extension \n"
+    else:
+        print " \n Incorect format - Please use a file with '/.csv extension /' "
