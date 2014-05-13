@@ -26,6 +26,7 @@ def process_csv(filename):
 
 def display_output(Ordr_Dict):
     # Iterate over ordered dictionary to get fancier output
+    print "Requested output is as follows :"
     for items in Ordr_Dict.iteritems():
         print items
 
