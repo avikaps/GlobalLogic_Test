@@ -33,9 +33,11 @@ def display_output(Ordr_Dict):
 def check_filename(filename):
     """ Return's TRUE if the file name is correct. """
     if filename.endswith('.csv'):
-        print "\n Check passed -- file has a correct extension \n"
+        print "Check passed -- file has a correct extension \n"
         return True
     else:
-        print " \n Incorect format - Please use a file with '.csv' extension "
+        print "Incorrect format - Please use a file with '.csv' extension "
         return False
-        
+    
+if __name__ == "__main__":
+    process_csv('sample.csv')       
